@@ -10,7 +10,7 @@ external image block, to use on your sites in Ariadne.
 # Installation
 Use in Ariadne as follows:
 
-1. Define the GALLERY const on line 3 of this file.
+1. Define the GALLERY const on <a href="https://github.com/sndrr/mod_gallery2/blob/master/mod_gallery2.php#L3">line 3 of mod_gallery2.php</a>.
 1. Add something like this in your template:
 
 ```
