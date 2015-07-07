@@ -40,11 +40,11 @@ define(GALLERY, 'http://example.com/gallery2/main.php');
     class gallery
     {
         /**
-        * Show single image
-        *
-        * @param imageId the gallery item id
-        * @return the image to show
-        */
+         * Show single image
+         *
+         * @param imageId the gallery item id
+         * @return the image to show
+         */
         public function ShowSingleImage($imageId)
         {
             $image = null;
@@ -62,10 +62,10 @@ define(GALLERY, 'http://example.com/gallery2/main.php');
         public function ShowImages($imageCSV)
         {
             $images = null;
-            $ids = split(',',$imageCSV);
-            foreach($ids as $id)
+            $ids = split(',', $imageCSV);
+            foreach ($ids as $id)
             {
-                $id=trim($id);
+                $id = trim($id);
                 if (is_numeric($id))
                 {
                     $images .= @readfile(GALLERY.'?g2_view=imageblock.External&g2_blocks=specificItem&g2_show=none&g2_itemId='.$id.'&g2_linkTarget=_newWindow');
@@ -78,37 +78,38 @@ define(GALLERY, 'http://example.com/gallery2/main.php');
          * Show random image(s)
          *
          * number of images to show
+         * @param integer $number
          */
         public function ShowRandomImages($number)
         {
             if (is_numeric($number))
             {
-                $blocks='randomImage';
+                $blocks = 'randomImage';
                 while ($number > 1)
                 {
                     $blocks .= '|randomImage';
                     $number--;
                 }
-                return @readfile(GALLERY.'?g2_view=imageblock.External&g2_blocks='.$blocks. '&g2_show=none&g2_linkTarget=_newWindow');
+                return @readfile(GALLERY.'?g2_view=imageblock.External&g2_blocks='.$blocks.'&g2_show=none&g2_linkTarget=_newWindow');
             }
         }
         /**
          * Show recent image(s)
          *
-         * @param type $number number of images to show
+         * @param integer $number number of images to show
          * @return type
          */
         public function ShowRecentImages($number)
         {
             if (is_numeric($number))
             {
-                $blocks='recentImage';
+                $blocks = 'recentImage';
                 while ($number > 1)
                 {
                     $blocks .= '|recentImage';
                     $number--;
                 }
-                return @readfile(GALLERY.'?g2_view=imageblock.External&g2_blocks='.$blocks. '&g2_show=none&g2_linkTarget=_newWindow');
+                return @readfile(GALLERY.'?g2_view=imageblock.External&g2_blocks='.$blocks.'&g2_show=none&g2_linkTarget=_newWindow');
             }
         }
     }
@@ -130,7 +131,7 @@ define(GALLERY, 'http://example.com/gallery2/main.php');
          * Show multiple images
          *
          * @param $imageCSV a comma separated list of values of the Gallery imageIds of the images to show
-         * @return the images to show
+         * @return string|null images to show
          */
         function _ShowImages($imageCSV)
         {
